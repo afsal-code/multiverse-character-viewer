@@ -2,19 +2,25 @@ import './App.css';
 import FetchData from './components/FetchData';
 import Detail from './components/Detail';
 import Layout from './components/Layout';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { path: '/', element: <FetchData /> },
+      { path: '/detail/:id', element: <Detail /> },
+    ],
+  },
+],
+{
+  basename: '/multiverse-character-viewer',  // Add basename here
+}
+);
 
 function App() {
-  return (
-    <BrowserRouter basename="/multiverse-character-viewer">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<FetchData />} />
-          <Route path="detail/:id" element={<Detail />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
-
+ 
 export default App;
