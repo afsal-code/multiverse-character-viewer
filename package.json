@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": " https://github.com/afsal-code/multiverse-character-viewer",
+  "homepage": " https://github.io/afsal-code/multiverse-character-viewer",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
